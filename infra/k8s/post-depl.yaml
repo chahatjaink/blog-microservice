@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
         - name: posts
-          image: chahatjain/posts:2.0.0
+          image: chahatjain/posts
