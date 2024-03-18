@@ -10,6 +10,7 @@ app.use(cors());
 const posts = {};
 
 const handleEvent = (type, data) => {
+  console.log("TCL: handleEvent -> data", data);
   if (type === "PostCreated") {
     const { id, title } = data;
 

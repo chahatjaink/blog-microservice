@@ -6,17 +6,20 @@ const CommentCreate = ({ postId }) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-
-    await axios.post(`http://posts.com/posts/${postId}/comments`, {
-      content,
-    });
+    try {
+      await axios.post(`http://posts.com/posts/${postId}/comments`, {
+        content,
+      });
+    } catch (error) {
+      console.log("TCL: onSubmit -> error", error);
+    }
 
     setContent("");
   };
 
   return (
     <div>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={(e) => onSubmit(e)}>
         <div className="form-group">
           <label>New Comment</label>
           <input
